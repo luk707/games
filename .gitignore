@@ -1,0 +1,4 @@
+bazel-bin
+bazel-games
+bazel-out
+bazel-testlogs
