@@ -1,0 +1,10 @@
+cc_binary(
+    name = "wireframe_cube",
+    srcs = [
+        "main.cc",
+    ],
+    deps = [
+        "@raylib"
+    ],
+    linkopts = ["/subsystem:windows", "/ENTRY:mainCRTStartup"],
+)
