@@ -1,0 +1,11 @@
+cc_binary(
+    name = "game_of_life",
+    srcs = [
+        "main.cc",
+        "game_of_life.cc",
+        "game_of_life.hh",
+    ],
+    deps = [
+        "@raylib"
+    ]
+)
