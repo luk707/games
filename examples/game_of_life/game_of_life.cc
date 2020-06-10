@@ -25,6 +25,18 @@ GameOfLife::~GameOfLife()
     delete[] next_state;
 }
 
+int normalise(int& v, int max) {
+    if (v < 0) {
+        v += max;
+        return normalise(v, max);
+    }
+    if (v >= max) {
+        v -= max;
+        return normalise(v, max);
+    }
+    return v;
+}
+
 void GameOfLife::Update()
 {
     for (int i = 0; i < width * height; i++)
@@ -41,9 +53,12 @@ void GameOfLife::Update()
             int cy = i / width;
             int dx = (j % 3) - 1;
             int dy = (j / 3) - 1;
-            int nx = (cx + dx) % width;
-            int ny = (cy + dy) % height;
+            int nx = cx + dx;
+            normalise(nx, width);
+            int ny = cy + dy;
+            normalise(ny, height);
             int ni = nx + (width * ny);
+
             if (state[ni])
             {
                 nc++;
