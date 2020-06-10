@@ -6,9 +6,9 @@ This repo houses some small experiments using C++ & Raylib.
 
 _Note: This repository currently only works on Windows. I intend to also support Linux & MacOS in the future._
 
-[Bazel](https://docs.bazel.build/versions/master/install-windows.html)
-[VC++ Redist](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
-[Build Tools for Visual Studio 2019](https://aka.ms/buildtools)
+- [Bazel](https://docs.bazel.build/versions/master/install-windows.html)
+- [VC++ Redist](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+- [Build Tools for Visual Studio 2019](https://aka.ms/buildtools)
 
 ## Environment
 
