@@ -1,0 +1,20 @@
+cc_test(
+    name = "vector3_test",
+    srcs = ["vector3_test.cc"],
+    copts = ["-Iexternal/gtest/include"],
+    deps = [
+        "@gtest",
+        ":vector3",
+    ],
+)
+
+cc_library(
+    name = "vector3",
+    srcs = [
+        "vector3.cc",
+        "vector3.hh",
+    ],
+    deps = [
+        "@raylib",
+    ],
+)
