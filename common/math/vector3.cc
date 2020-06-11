@@ -1,4 +1,4 @@
-#include "raylib-3.0.0-Win64-msvc15/include/raylib.h"
+#include "include/raylib.h"
 #include "vector3.hh"
 
 Common::Math::Vector3::Vector3(float x, float y, float z)

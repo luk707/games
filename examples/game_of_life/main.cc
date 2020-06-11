@@ -1,4 +1,4 @@
-#include "raylib-3.0.0-Win64-msvc15/include/raylib.h"
+#include "include/raylib.h"
 #include "game_of_life.hh"
 
 int main(int argc, char* argv[])

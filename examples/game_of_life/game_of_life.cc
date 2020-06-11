@@ -1,5 +1,5 @@
 #include <random>
-#include "raylib-3.0.0-Win64-msvc15/include/raylib.h"
+#include "include/raylib.h"
 #include "game_of_life.hh"
 
 GameOfLife::GameOfLife(int width, int height)
