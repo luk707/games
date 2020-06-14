@@ -23,3 +23,11 @@ http_archive(
     build_file = "@//:glfw.BUILD",
     strip_prefix = "glfw-3.3.2.bin.WIN64",
 )
+
+http_archive(
+    name = "glew",
+    url = "https://github.com/nigels-com/glew/releases/download/glew-2.1.0/glew-2.1.0-win32.zip",
+    sha256 = "80cfc88fd295426b49001a9dc521da793f8547ac10aebfc8bdc91ddc06c5566c",
+    build_file = "@//:glew.BUILD",
+    strip_prefix = "glew-2.1.0",
+)

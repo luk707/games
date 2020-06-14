@@ -1,11 +1,13 @@
+#include <iostream>
 #include <stdlib.h>
+#include "include/GL/glew.h"
 #include "include/GLFW/glfw3.h"
 
 int main()
 {
     if (!glfwInit())
         exit(EXIT_FAILURE);
-    
+
     GLFWwindow* window = glfwCreateWindow(640, 480, "Hello, World!", NULL, NULL);
 
     if (!window)
@@ -15,6 +17,11 @@ int main()
     }
 
     glfwMakeContextCurrent(window);
+
+    if (glewInit() != GLEW_OK)
+        exit(EXIT_FAILURE);
+
+    std::cout << glGetString(GL_VERSION) << std::endl;
 
     while (!glfwWindowShouldClose(window))
     {

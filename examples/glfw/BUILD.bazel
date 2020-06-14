@@ -1,6 +1,6 @@
 cc_binary(
     name = "glfw",
     srcs = ["main.cc"],
-    deps = ["@glfw"],
+    deps = ["@glfw", "@glew"],
     linkopts = ["opengl32.lib"],
 )
