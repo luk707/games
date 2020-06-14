@@ -7,7 +7,7 @@ cc_binary(
         "//engine/shaders:parse",
     ],
     data = [
-        "//engine/shaders:basic.glsl",
+        "//engine/shaders:basic_shader",
     ],
     linkopts = ["opengl32.lib"],
 )
