@@ -3,7 +3,7 @@
 
 #include "parse.hh"
 
-TEST(LoadShaderTest) {
+TEST(ParseShaderTest) {
     std::string shaderSource =
         "#shader vertex\n"
         "#version 330 core\n"
