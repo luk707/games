@@ -6,6 +6,26 @@
 
 #include "engine/shaders/parse.hh"
 
+#define ASSERT(x) if(!(x)) __debugbreak();
+#define GLCall(x) GLClearError();\
+    x;\
+    ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+
+static void GLClearError()
+{
+    while(glGetError() != GL_NO_ERROR);
+}
+
+static bool GLLogCall(const char* function, const char* file, int line)
+{
+    while (GLenum error = glGetError())
+    {
+        std::cout << "[OpenGL Error] (0x" << std::hex << error << "): " << function << " " << file << ":" << std::dec << line << std::endl;
+        return false;
+    }
+    return true;
+}
+
 static unsigned int CompileShader(unsigned int type, const std::string& source)
 {
     unsigned int id = glCreateShader(type);
@@ -108,8 +128,8 @@ int main()
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT);
-
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        
+        GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
         glfwSwapBuffers(window);
         glfwPollEvents();
