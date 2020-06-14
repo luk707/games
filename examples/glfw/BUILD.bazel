@@ -1,6 +1,13 @@
 cc_binary(
     name = "glfw",
     srcs = ["main.cc"],
-    deps = ["@glfw", "@glew"],
+    deps = [
+        "@glfw",
+        "@glew",
+        "//engine/shaders:parse",
+    ],
+    data = [
+        "//engine/shaders:basic.glsl",
+    ],
     linkopts = ["opengl32.lib"],
 )

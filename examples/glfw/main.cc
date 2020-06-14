@@ -1,7 +1,10 @@
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include "include/GL/glew.h"
 #include "include/GLFW/glfw3.h"
+
+#include "engine/shaders/parse.hh"
 
 static unsigned int CompileShader(unsigned int type, const std::string& source)
 {
@@ -78,27 +81,17 @@ int main()
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
 
-    std::string vertexShader =
-        "#version 330 core\n"
-        "\n"
-        "layout(location = 0) in vec4 position;\n"
-        "\n"
-        "void main()\n"
-        "{\n"
-        "   gl_Position = position;\n"
-        "}\n";
+    std::ifstream stream("engine/shaders/basic.glsl");
 
-    std::string fragmentShader =
-        "#version 330 core\n"
-        "\n"
-        "layout(location = 0) out vec4 color;\n"
-        "\n"
-        "void main()\n"
-        "{\n"
-        "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
-        "}\n";
+    if (!stream)
+    {
+        std::cout << "Cannot open file!" << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
-    unsigned int shader = CreateShader(vertexShader, fragmentShader);
+    Engine::Shaders::ProgramSource programSource = Engine::Shaders::Parse(stream);
+
+    unsigned int shader = CreateShader(programSource.VertexSource, programSource.FragmentSource);
     glUseProgram(shader);
 
     while (!glfwWindowShouldClose(window))
