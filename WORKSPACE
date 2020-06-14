@@ -15,3 +15,11 @@ http_archive(
     build_file = "@//:gtest.BUILD",
     strip_prefix = "googletest-release-1.7.0",
 )
+
+http_archive(
+    name = "glfw",
+    url = "https://github.com/glfw/glfw/releases/download/3.3.2/glfw-3.3.2.bin.WIN64.zip",
+    sha256 = "aa291d8dce27d9e6cd567dc56e3768dcefceb3ddb7a65fb4cc3ef35be2a7548c",
+    build_file = "@//:glfw.BUILD",
+    strip_prefix = "glfw-3.3.2.bin.WIN64",
+)
