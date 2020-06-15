@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
 
 #include "shader_source.hh"
 
@@ -12,8 +13,7 @@ namespace Common
         {
         private:
             unsigned int m_RendererID;
-            ShaderSource m_ShaderSource;
-            // Uniform cache
+            std::unordered_map<std::string, unsigned int> m_UniformLocationCache;
         public:
             Shader(Common::GL::ShaderSource& shaderSource);
             ~Shader();
