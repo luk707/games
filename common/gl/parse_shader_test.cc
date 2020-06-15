@@ -1,7 +1,7 @@
 #include <iostream>
 #include "gtest/gtest.h"
 
-#include "parse.hh"
+#include "parse_shader.hh"
 
 TEST(ParseShaderTest) {
     std::string shaderSource =
@@ -51,7 +51,7 @@ TEST(ParseShaderTest) {
     std::stringstream shaderSourceStream;
     shaderSourceStream << shaderSource;
 
-    Engine::Shaders::ProgramSource programSource = Engine::Shaders::Parse(shaderSourceStream);
+    Common::GL::ShaderSource programSource = Common::GL::ParseShader(shaderSourceStream);
 
     EXPECT_EQ(programSource.VertexSource, expectedVertexShader);
     EXPECT_EQ(programSource.FragmentSource, expectedFragmentShader);

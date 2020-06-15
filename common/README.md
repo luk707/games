@@ -1,6 +1,9 @@
 # Common
 
-The common libary contains useful classes and methods for building games with Raylib.
+## GL
+
+The `Common::GL` namespace contains various OpenGL abstractions.
+
 
 ## Math
 

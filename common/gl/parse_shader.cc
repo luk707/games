@@ -1,8 +1,8 @@
 #include <sstream>
 
-#include "parse.hh"
+#include "parse_shader.hh"
 
-Engine::Shaders::ProgramSource Engine::Shaders::Parse(std::istream& stream)
+Common::GL::ShaderSource Common::GL::ParseShader(std::istream& stream)
 {
     enum class ShaderType
     {

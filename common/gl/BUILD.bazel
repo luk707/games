@@ -1,0 +1,84 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "index_buffer",
+    srcs = [
+        "index_buffer.cc",
+        "index_buffer.hh",
+    ],
+    deps = [":renderer"],
+)
+
+cc_library(
+    name = "parse_shader",
+    srcs = [
+        "parse_shader.cc",
+        "parse_shader.hh",
+    ],
+    deps = [":shader_source"],
+)
+
+cc_test(
+    name = "parse_shader_test",
+    srcs = ["parse_shader_test.cc"],
+    copts = ["-Iexternal/gtest/include"],
+    deps = [
+        "@gtest",
+        ":parse_shader",
+    ],
+)
+
+cc_library(
+    name = "renderer",
+    srcs = [
+        "renderer.cc",
+        "renderer.hh",
+    ],
+    deps = ["@glew"],
+)
+
+cc_library(
+    name = "shader",
+    srcs = [
+        "shader.cc",
+        "shader.hh",
+    ],
+    deps = [
+        ":renderer",
+        ":shader_source",
+    ],
+)
+
+cc_library(
+    name = "shader_source",
+    srcs = ["shader_source.hh"],
+)
+
+cc_library(
+    name = "vertex_array",
+    srcs = [
+        "vertex_array.cc",
+        "vertex_array.hh",
+    ],
+    deps = [
+        ":vertex_buffer",
+        ":vertex_buffer_layout",
+    ],
+)
+
+cc_library(
+    name = "vertex_buffer",
+    srcs = [
+        "vertex_buffer.cc",
+        "vertex_buffer.hh",
+    ],
+    deps = [":renderer"],
+)
+
+cc_library(
+    name = "vertex_buffer_layout",
+    srcs = [
+        "vertex_buffer_layout.hh",
+    ],
+    deps = [":renderer"],
+)

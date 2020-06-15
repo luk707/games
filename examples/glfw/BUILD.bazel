@@ -4,10 +4,16 @@ cc_binary(
     deps = [
         "@glfw",
         "@glew",
-        "//engine/shaders:parse",
+        "//common/gl:index_buffer",
+        "//common/gl:parse_shader",
+        "//common/gl:renderer",
+        "//common/gl:shader",
+        "//common/gl:vertex_array",
+        "//common/gl:vertex_buffer",
+        "//common/gl:vertex_buffer_layout",
     ],
     data = [
-        "//engine/shaders:basic_shader",
+        "//common/gl/shaders:basic_shader",
     ],
     linkopts = ["opengl32.lib"],
 )
