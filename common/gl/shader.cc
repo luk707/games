@@ -41,6 +41,11 @@ void Common::GL::Shader::SetUniform4f(const std::string& name, float v0, float v
     GLCall(glUniform4f(GetUniformLocation(name), v0, v1, v2, v3));
 }
 
+void Common::GL::Shader::SetUniformMat4(const std::string& name, glm::mat4x4& matrix)
+{
+    GLCall(glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix)));
+}
+
 unsigned int Common::GL::Shader::CompileShader(unsigned int type, const std::string& source)
 {
     GLCall(unsigned int id = glCreateShader(type));

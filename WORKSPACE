@@ -31,3 +31,11 @@ http_archive(
     build_file = "@//:glew.BUILD",
     strip_prefix = "glew-2.1.0",
 )
+
+http_archive(
+    name = "glm",
+    url = "https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip",
+    sha256 = "37e2a3d62ea3322e43593c34bae29f57e3e251ea89f4067506c94043769ade4c",
+    build_file = "@//:glm.BUILD",
+    strip_prefix = "glm",
+)

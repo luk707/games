@@ -4,6 +4,7 @@ cc_binary(
     deps = [
         "@glfw",
         "@glew",
+        "@glm",
         "//common/gl:index_buffer",
         "//common/gl:parse_shader",
         "//common/gl:renderer",
