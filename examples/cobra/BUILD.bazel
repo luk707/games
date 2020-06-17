@@ -1,0 +1,20 @@
+cc_binary(
+    name = "cobra",
+    srcs = ["main.cc"],
+    deps = [
+        "@glfw",
+        "@glew",
+        "@glm",
+        "//common/gl:index_buffer",
+        "//common/gl:parse_shader",
+        "//common/gl:renderer",
+        "//common/gl:shader",
+        "//common/gl:vertex_array",
+        "//common/gl:vertex_buffer",
+        "//common/gl:vertex_buffer_layout",
+    ],
+    data = [
+        ":cobra.glsl",
+    ],
+    linkopts = ["opengl32.lib"],
+)
