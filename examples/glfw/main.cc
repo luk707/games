@@ -95,6 +95,7 @@ int main()
 
         glm::mat4x4 proj = glm::perspective(glm::pi<float>() * 0.25f, 4.0f / 3.0f, 0.1f, 100.f);
         glm::mat4x4 view;
+        glm::mat4x4 model = glm::identity<glm::mat4x4>();
 
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
@@ -104,13 +105,14 @@ int main()
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             glClearColor(0.4f, 0.6f, 0.9f, 1.0f);
 
+            // Calculate view
+            view = glm::lookAt(glm::vec3(sinf(r) * 4.0f, 4.0f, cosf(r) * 4.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+            
             // Render geometery
             shader.Bind();
             shader.SetUniformMat4("u_Proj", proj);
-
-            view = glm::lookAt(glm::vec3(sinf(r) * 4.0f, 4.0f, cosf(r) * 4.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-
             shader.SetUniformMat4("u_View", view);
+            shader.SetUniformMat4("u_Model", model);
             va.Bind();
             ib.Bind();
 
