@@ -29,7 +29,7 @@ Here are the following projects in this repository:
 $ bazel run //examples/cobra --enable_runfiles
 ```
 
-![Cobra](screenshots/cobra.png)
+![Cobra](screenshots/cobra.gif)
 
 ## Game of Life
 
