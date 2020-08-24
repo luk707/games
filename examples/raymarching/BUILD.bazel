@@ -1,5 +1,5 @@
 cc_binary(
-    name = "shader_playground",
+    name = "raymarching",
     srcs = ["main.cc"],
     deps = [
         "@glfw",

@@ -2,6 +2,17 @@
 
 This repo houses some small experiments using C++ & Raylib.
 
+## Contents
+- [Games](#games)
+  - [Contents](#contents)
+  - [Prerequisites](#prerequisites)
+  - [Environment](#environment)
+  - [Cobra](#cobra)
+  - [Game of Life](#game-of-life)
+  - [GLFW](#glfw)
+  - [Hello World](#hello-world)
+  - [Raymarching](#raymarching)
+
 ## Prerequisites
 
 _Note: This repository currently only works on Windows. I intend to also support Linux & MacOS in the future._
@@ -13,15 +24,6 @@ _Note: This repository currently only works on Windows. I intend to also support
 ## Environment
 
 Bazel should be present in `PATH`, and `BAZEL_VC` should be set to your the VC directory of VS2019 Build Tools, it will likely be `C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC`.
-
-## Getting started
-
-Here are the following projects in this repository:
-
-- [Cobra](#cobra)
-- [Game of Life](#game-of-life)
-- [GLFW](#glfw)
-- [Hello World](#hello-world)
 
 ## Cobra
 
@@ -45,7 +47,7 @@ $ bazel run //examples/game_of_life
 $ bazel run //examples/glfw --enable_runfiles
 ```
 
-![Game of Life](screenshots/glfw.png)
+![GLFW](screenshots/glfw.png)
 
 ## Hello World
 
@@ -53,4 +55,13 @@ $ bazel run //examples/glfw --enable_runfiles
 $ bazel run //examples/hello_world
 ```
 
-![Game of Life](screenshots/hello_world.png)
+![Hello World](screenshots/hello_world.png)
+
+
+## Raymarching
+
+```
+$ bazel run //examples/raymarching --enable_runfiles
+```
+
+![Raymarching](screenshots/raymarching.png)
